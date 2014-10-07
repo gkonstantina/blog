@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
-  get 'welcome/index'
+
+  get "users/my_courses", path: "my-courses", as: "my_courses"
+  get "welcome/index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +13,12 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  resources :courses do
+      member do
+        get "join"
+      end
+  end
+
   root 'welcome#index'
 
   # Example of regular route:
