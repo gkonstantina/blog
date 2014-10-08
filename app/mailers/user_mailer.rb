@@ -13,4 +13,11 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Article Published', from: "support@three99.com")
   end
 
+  def art_notify_email(course)
+    @course = course
+    @users = course.users.pluck(:email)
+    @url  = url_for(controller: 'articles', action: 'index', only_path: false)
+    mail(to: @users, subject: 'Article Published', from: "support@three99.com")
+  end
+
 end

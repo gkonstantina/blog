@@ -11,6 +11,6 @@ class Article < ActiveRecord::Base
 
   def send_article_confirmation_email
     UserMailer.art_confirm_email(self.user).deliver
-    # UserMailer.art_confirm_email(User.first).deliver
+    UserMailer.art_notify_email(self.course).deliver
   end
 end
