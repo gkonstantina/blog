@@ -21,7 +21,7 @@
   </p>
   <p>
     <%= f.label :course %><br>
-    <%= f.select "course", Course.all.collect {|p| [ p.title, p.id ] } %>
+    <%= f.select "course_id", Course.all.collect {|p| [ p.title, p.id ] } %>
   </p>
   <p>
     <%= f.submit %>

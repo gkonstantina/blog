@@ -18,24 +18,25 @@ class ArticlesController < ApplicationController
   end
 
   def update
-  @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
 
-  if @article.update(article_params)
-    redirect_to @article
-  else
-    render 'edit'
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
-end
 
-def destroy
-  @article = Article.find(params[:id])
-  @article.destroy
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
 
-  redirect_to articles_path
-end
+    redirect_to articles_path
+  end
 
   def create
      @article = Article.new(article_params)
+     @article.user=current_user
      if @article.save
        redirect_to @article
      else
@@ -44,10 +45,9 @@ end
   end
 
   private
+
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :course_id)
   end
-
-
 
 end
