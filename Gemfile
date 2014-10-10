@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'rails_12factor'
 
 
 group :development do
