@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
 
   get "users/my_courses", path: "my-courses", as: "my_courses"
